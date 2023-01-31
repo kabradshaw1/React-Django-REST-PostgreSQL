@@ -1,10 +1,8 @@
 from django.shortcuts import render
 from rest_framework import viewsets
-from .serializers import UserSerializer
-from .models import User
+from user.serializer import UserSerializer
+from user.models import User
 
 class UserView(viewsets.ModelViewSet):
   serializer_class = UserSerializer
- 
-  def get_queryset(self):
-    return User.objects.all()
+  queryset = User.objects.all()
