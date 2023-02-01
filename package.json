@@ -1,9 +1,18 @@
 {
+  "name": "treact-django-postgresql",
+  "version": "0.1",
+  "discription": "",
+
  "scripts": {
   "start": "cd client && npm start",
-  "build": "cd client && npm run build"
+  "build": "cd client && npm run build",
+  "eject": "cd client && npm run eject"
  },
  "dependencies": {
   "concurrently": "^7.6.0"
- }
+ },
+ "engines": {
+  "node": "16.17.0",
+  "npm": "8.15.0"
+  }
 }
