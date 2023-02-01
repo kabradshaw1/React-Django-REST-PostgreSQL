@@ -11,8 +11,9 @@ import Card from 'react-bootstrap/Card';
 
 
 function App() {
-  const [userFormData, setUserFormData] = useState({ name: "", price: "", description: "" });
+  const [menuFormData, setMenuFormData] = useState({ name: "", price: "", description: "" });
 
+  const [menuGetData, setMenuGetData] = useState({ name: "", price: "", description: "" });
   // set state for form validation
   const [validated] = useState(false);
 
@@ -21,22 +22,22 @@ function App() {
 
   const handleNameChange = (event) => {
     const { name, value } = event.target;
-    setUserFormData({ ...userFormData, [name]: value });
+    setMenuFormData({ ...menuFormData, [name]: value });
   };
 
   const handlePriceChange = (event) => {
     const { price, value } = event.target;
-    setUserFormData({ ...userFormData, [price]: value });
+    setMenuFormData({ ...menuFormData, [price]: value });
   };
 
   const handleDescriptionChange = (event) => {
     const { description, value } = event.target;
-    setUserFormData({ ...userFormData, [description]: value });
+    setMenuFormData({ ...menuFormData, [description]: value });
   };
   
   const handlePostSubmit = async (event) => {
     event.preventDefault();
-    console.log(userFormData)
+    console.log(menuFormData)
     // check if form has everything (as per react-bootstrap docs)
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
@@ -45,7 +46,7 @@ function App() {
     }
     
     try {
-      const resp = await axios.post('/api/menus/', userFormData);
+      const resp = await axios.post('/api/menus/', menuFormData);
       console.log(resp.data)
 
     } catch(err) {
@@ -53,12 +54,26 @@ function App() {
       setShowAlert(true);
     }
 
-    setUserFormData({
+    setMenuFormData({
       name: "",
       price: "",
       description: ""
     });
   };
+
+  const handleGetSubmit = async (event) => {
+    event.preventDefault()
+
+    try{
+      resp = await axios.get('/api/menus/')
+      setMenuGetData(resp)
+
+    }catch(err) {
+      console.error(err)
+    }
+
+  }
+
   return (
     <Container>
       <Row>
@@ -76,15 +91,15 @@ function App() {
             <Form.Label><h3>Menu Form</h3></Form.Label>
             <Form.Group className='mb-3'>
               <Form.Label>name</Form.Label>
-              <Form.Control name='name' value={userFormData.name} onChange={handleNameChange} type='text' placeholder='Enter name'/>
+              <Form.Control name='name' value={menuFormData.name} onChange={handleNameChange} type='text' placeholder='Enter name'/>
             </Form.Group>
             <Form.Group className='mb-3'>
               <Form.Label>price</Form.Label>
-              <Form.Control name='price' value={userFormData.price} onChange={handlePriceChange} type='price' placeholder='Enter price'/>
+              <Form.Control name='price' value={menuFormData.price} onChange={handlePriceChange} type='price' placeholder='Enter price'/>
             </Form.Group>
             <Form.Group className='mb-3'>
               <Form.Label>description</Form.Label>
-              <Form.Control name='description' value={userFormData.description} onChange={handleDescriptionChange} type='description' placeholder='Enter description'/>
+              <Form.Control name='description' value={menuFormData.description} onChange={handleDescriptionChange} type='description' placeholder='Enter description'/>
             </Form.Group>
             <Button variant="primary" type="submit">
               Submit
