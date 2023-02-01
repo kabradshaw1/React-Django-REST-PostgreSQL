@@ -154,7 +154,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ORIGIN_WHITELIST = [
     'https://localhost:3000',
-    'serene-tor-73175.herokuapp.com',
+    'http://serene-tor-73175.herokuapp.com',
 ]
 
 django_heroku.settings(locals())

@@ -1,6 +1,9 @@
 {
  "scripts": {
-    "start": "cd client react-scripts start",
-    "build": "cd client react-scripts build"
+  "start": "cd client && npm start",
+  "build": "cd client && npm run build"
+ },
+ "dependencies": {
+  "concurrently": "^7.6.0"
  }
 }
