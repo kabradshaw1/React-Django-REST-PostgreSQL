@@ -19,12 +19,22 @@ function App() {
   // set state for alert
   const [showAlert, setShowAlert] = useState(false);
 
-  const handleInputChange = (event) => {
+  const handleNameChange = (event) => {
     const { name, value } = event.target;
     setUserFormData({ ...userFormData, [name]: value });
   };
+
+  const handlePriceChange = (event) => {
+    const { price, value } = event.target;
+    setUserFormData({ ...userFormData, [price]: value });
+  };
+
+  const handleDescriptionChange = (event) => {
+    const { description, value } = event.target;
+    setUserFormData({ ...userFormData, [description]: value });
+  };
   
-  const handleSubmit = async (event) => {
+  const handlePostSubmit = async (event) => {
     event.preventDefault();
     console.log(userFormData)
     // check if form has everything (as per react-bootstrap docs)
@@ -53,7 +63,7 @@ function App() {
     <Container>
       <Row>
         <Col>
-          <Form noValidate validated={validated} className='bg-secondary' onSubmit={handleSubmit}>
+          <Form noValidate validated={validated} className='bg-secondary' onSubmit={handlePostSubmit}>
             {/* show alert if server response is bad */}
             <Alert
                 dismissible
@@ -66,11 +76,15 @@ function App() {
             <Form.Label><h3>Menu Form</h3></Form.Label>
             <Form.Group className='mb-3'>
               <Form.Label>name</Form.Label>
-              <Form.Control name='name' value={userFormData.name} onChange={handleInputChange} type='text' placeholder='Enter name'/>
+              <Form.Control name='name' value={userFormData.name} onChange={handleNameChange} type='text' placeholder='Enter name'/>
             </Form.Group>
             <Form.Group className='mb-3'>
               <Form.Label>price</Form.Label>
-              <Form.Control name='price' value={userFormData.price} onChange={handleInputChange} type='price' placeholder='Enter price'/>
+              <Form.Control name='price' value={userFormData.price} onChange={handlePriceChange} type='price' placeholder='Enter price'/>
+            </Form.Group>
+            <Form.Group className='mb-3'>
+              <Form.Label>description</Form.Label>
+              <Form.Control name='description' value={userFormData.description} onChange={handleDescriptionChange} type='description' placeholder='Enter description'/>
             </Form.Group>
             <Button variant="primary" type="submit">
               Submit
