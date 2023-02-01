@@ -15,3 +15,6 @@ https://serene-tor-73175.herokuapp.com/
 * login to the virtual environment by typing, venv\Scripts\activate, into the command line (windows only)
 * Install python packages: pip install Django djangorestframework django-cors-headers dj-database-url django-heroku gunicorn whitenoise python-decouple psycopg2 
 * Set up .env with SECRET_KEY=, DEBUG=true, DB_PW=, DB_NAME=, USER_NAME=, HOST=localhost
+* Create a database if you haven't already.  You can do this from pgAdmin or from command line.  I used the command line.  Login with psql -U username and putting in password.  The command to make a database is CEATE DATABASE databasename;
+* In the command line, type: python manage.py makemigrations and python manage.py migrate
+* Install npm package from command line: npm i

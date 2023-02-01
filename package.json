@@ -6,7 +6,8 @@
  "scripts": {
   "start": "cd client && npm start",
   "build": "cd client && npm run build",
-  "eject": "cd client && npm run eject"
+  "eject": "cd client && npm run eject",
+  "install": "cd client && npm i"
  },
  "dependencies": {
   "concurrently": "^7.6.0"
