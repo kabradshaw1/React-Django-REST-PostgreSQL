@@ -13,7 +13,7 @@ import Card from 'react-bootstrap/Card';
 function App() {
   const [menuFormData, setMenuFormData] = useState({ name: "", price: "", description: "" });
 
-  const [menuGetData, setMenuGetData] = useState({ name: "", price: "", description: "" });
+  const [menuGetData, setMenuGetData] = useState([]);
   // set state for form validation
   const [validated] = useState(false);
 
@@ -65,7 +65,7 @@ function App() {
     event.preventDefault()
 
     try{
-      resp = await axios.get('/api/menus/')
+      const resp = await axios.get('/api/menus/');
       setMenuGetData(resp)
 
     }catch(err) {
@@ -110,15 +110,15 @@ function App() {
           <Card className='bg-secondary'>
             <Card.Title><h3>Menu List</h3></Card.Title>
             <Card.Subtitle>name</Card.Subtitle>
-            {/* {menus && 
-              menus.map(menu => (
-                <>
-                  <Card.Text key={menu._id} className='mb-3'>{menu.name}</Card.Text>
-                  <Card.Text className='mb-3'>{menu.price}</Card.Text>
-                </>
-                
-              ))
-            } */}
+            {menuGetData.map((menu) =>{
+              <Card className='bg-primary'>
+                <Card.Text>{menu.name}</Card.Text>
+                <Card.Text>{menu.description}</Card.Text>
+                <Card.Text>{menu.price}</Card.Text>
+              </Card>
+            })}
+            <Card.Text>Stuff</Card.Text>
+            <Button variant="primary" onClick={handleGetSubmit}>Get</Button>
           </Card>
         </Col>
       </Row>
