@@ -1,0 +1,6 @@
+{
+ "scripts": {
+    "start": "cd client react-scripts start",
+    "build": "cd client react-scripts build"
+ }
+}
