@@ -1,6 +1,6 @@
 {
   "name": "client",
-  "homepage": "https://serene-tor-73175.herokuapp.com/",
+  "homepage": ".",
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:8000",

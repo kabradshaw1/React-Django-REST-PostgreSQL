@@ -24,16 +24,7 @@ function App() {
     const { name, value } = event.target;
     setMenuFormData({ ...menuFormData, [name]: value });
   };
-
-  // const handlePriceChange = (event) => {
-  //   const { price, value } = event.target;
-  //   setMenuFormData({ ...menuFormData, [price]: value });
-  // };
-
-  // const handleDescriptionChange = (event) => {
-  //   const { description, value } = event.target;
-  //   setMenuFormData({ ...menuFormData, [description]: value });
-  // };
+  
   
   const handlePostSubmit = async (event) => {
     event.preventDefault();
@@ -65,8 +56,9 @@ function App() {
     event.preventDefault()
 
     try{
-      const resp = await axios.get('/api/menus/');
-      setMenuGetData(resp)
+      const resp = await axios.get('/api/menu/', {header:{"Content-type": "application/json"}});
+      console.log(resp)
+      setMenuGetData(resp.data)
 
     }catch(err) {
       console.error(err)
