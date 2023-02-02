@@ -24,7 +24,7 @@ function App() {
     const { name, value } = event.target;
     setMenuFormData({ ...menuFormData, [name]: value });
   };
-  
+
   
   const handlePostSubmit = async (event) => {
     event.preventDefault();
@@ -38,7 +38,7 @@ function App() {
     
     try {
       const resp = await axios.post('/api/menus/', menuFormData);
-      console.log(resp.data)
+      console.log(resp)
 
     } catch(err) {
       console.error(err)
@@ -57,7 +57,6 @@ function App() {
 
     try{
       const resp = await axios.get('/api/menu/', {header:{"Content-type": "application/json"}});
-      console.log(resp)
       setMenuGetData(resp.data)
 
     }catch(err) {
@@ -104,13 +103,13 @@ function App() {
           <Card className='bg-secondary'>
             <Card.Title><h3>Menu List</h3></Card.Title>
             <Card.Subtitle>name</Card.Subtitle>
-            {menuGetData.map((menu) => {
-              <Card className='bg-primary'>
+            {menuGetData && menuGetData.map((menu, index) => (
+              <Card className='bg-primary' key={menu.id}>
                 <Card.Text>{menu.name}</Card.Text>
                 <Card.Text>{menu.description}</Card.Text>
                 <Card.Text>{menu.price}</Card.Text>
               </Card>
-            })}
+            ))}
             <Card.Text>Stuff</Card.Text>
             <Button variant="primary" onClick={handleGetSubmit}>Get</Button>
           </Card>
