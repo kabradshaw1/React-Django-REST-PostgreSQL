@@ -20,20 +20,20 @@ function App() {
   // set state for alert
   const [showAlert, setShowAlert] = useState(false);
 
-  const handleNameChange = (event) => {
+  const handleChange = (event) => {
     const { name, value } = event.target;
     setMenuFormData({ ...menuFormData, [name]: value });
   };
 
-  const handlePriceChange = (event) => {
-    const { price, value } = event.target;
-    setMenuFormData({ ...menuFormData, [price]: value });
-  };
+  // const handlePriceChange = (event) => {
+  //   const { price, value } = event.target;
+  //   setMenuFormData({ ...menuFormData, [price]: value });
+  // };
 
-  const handleDescriptionChange = (event) => {
-    const { description, value } = event.target;
-    setMenuFormData({ ...menuFormData, [description]: value });
-  };
+  // const handleDescriptionChange = (event) => {
+  //   const { description, value } = event.target;
+  //   setMenuFormData({ ...menuFormData, [description]: value });
+  // };
   
   const handlePostSubmit = async (event) => {
     event.preventDefault();
@@ -78,39 +78,41 @@ function App() {
     <Container>
       <Row>
         <Col>
-          <Form noValidate validated={validated} className='bg-secondary' onSubmit={handlePostSubmit}>
-            {/* show alert if server response is bad */}
-            <Alert
-                dismissible
-                onClose={() => setShowAlert(false)}
-                show={showAlert}
-                variant="danger"
-                >
-                Something went wrong with your signup!
-              </Alert>
-            <Form.Label><h3>Menu Form</h3></Form.Label>
-            <Form.Group className='mb-3'>
-              <Form.Label>name</Form.Label>
-              <Form.Control name='name' value={menuFormData.name} onChange={handleNameChange} type='text' placeholder='Enter name'/>
-            </Form.Group>
-            <Form.Group className='mb-3'>
-              <Form.Label>price</Form.Label>
-              <Form.Control name='price' value={menuFormData.price} onChange={handlePriceChange} type='price' placeholder='Enter price'/>
-            </Form.Group>
-            <Form.Group className='mb-3'>
-              <Form.Label>description</Form.Label>
-              <Form.Control name='description' value={menuFormData.description} onChange={handleDescriptionChange} type='description' placeholder='Enter description'/>
-            </Form.Group>
-            <Button variant="primary" type="submit">
-              Submit
-            </Button>
-          </Form>
+          <Card>
+            <Form noValidate validated={validated} className='bg-secondary' onSubmit={handlePostSubmit}>
+              {/* show alert if server response is bad */}
+              <Alert
+                  dismissible
+                  onClose={() => setShowAlert(false)}
+                  show={showAlert}
+                  variant="danger"
+                  >
+                  Something went wrong with your signup!
+                </Alert>
+              <Form.Label><h3>Menu Form</h3></Form.Label>
+              <Form.Group className='mb-3' controlId=''>
+                <Form.Label>name</Form.Label>
+                <Form.Control name='name' value={menuFormData.name} onChange={handleChange} type='text' placeholder='Enter name'/>
+              </Form.Group>
+              <Form.Group className='mb-3'>
+                <Form.Label>price</Form.Label>
+                <Form.Control name='price' value={menuFormData.price} onChange={handleChange} type='price' placeholder='Enter price'/>
+              </Form.Group>
+              <Form.Group className='mb-3'>
+                <Form.Label>description</Form.Label>
+                <Form.Control name='description' value={menuFormData.description} onChange={handleChange} type='text' placeholder='Enter description'/>
+              </Form.Group>
+              <Button variant="primary" type="submit">
+                Submit
+              </Button>
+            </Form>
+          </Card>
         </Col>
         <Col>
           <Card className='bg-secondary'>
             <Card.Title><h3>Menu List</h3></Card.Title>
             <Card.Subtitle>name</Card.Subtitle>
-            {menuGetData.map((menu) =>{
+            {menuGetData.map((menu) => {
               <Card className='bg-primary'>
                 <Card.Text>{menu.name}</Card.Text>
                 <Card.Text>{menu.description}</Card.Text>
