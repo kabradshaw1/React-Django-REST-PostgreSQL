@@ -37,7 +37,7 @@ function App() {
     }
     
     try {
-      const resp = await axios.post('/api/menus/', menuFormData);
+      const resp = await axios.post('/api/menus/', menuFormData, {header:{"Content-type": "application/json"}});
       console.log(resp)
 
     } catch(err) {
