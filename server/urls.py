@@ -25,6 +25,6 @@ router.register(r'users', UserViewSet, 'user')
 router.register(r'menu', MenuViewSet, basename='menu')
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    # path('admin/', admin.site.urls),
     path('api/', include((router.urls, 'server'), namespace='server'))
 ]
