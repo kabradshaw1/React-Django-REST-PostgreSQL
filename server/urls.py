@@ -17,14 +17,14 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 from core.views import UserViewSet
-from menu.views import MenuViewSet
+# from menu.views import MenuViewSet
 
 router = routers.DefaultRouter()
-router.register(r'users', UserViewSet, 'user')
+# router.register(r'users', UserViewSet, 'user')
 # router.register(r'users', UserView, 'user')
 router.register(r'menu', MenuViewSet, basename='menu')
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
-    path('api/', include((router.urls, 'server'), namespace='server'))
+    path('api/', include(router.urls))
 ]
