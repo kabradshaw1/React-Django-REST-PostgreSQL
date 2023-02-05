@@ -16,8 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include, re_path
 from rest_framework import routers
-# from core.views import UserViewSet
+
 from menu.views import MenuViewSet
+from menu.user.views import UserViewSet
+from core.auth.views import LoginViewSet, RegistrationViewSet, RefreshViewSet
+
 from django.views.generic import TemplateView
 
 router = routers.DefaultRouter()
