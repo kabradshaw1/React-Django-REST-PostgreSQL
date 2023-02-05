@@ -33,6 +33,7 @@ DEBUG = config('DEBUG')
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'serene-tor-73175.herokuapp.com']
 
+AUTH_USER_MODEL = 'core_user.User'
 
 # Application definition
 
@@ -45,8 +46,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'core',
-    'user',
+
     'menu',
+    'menu.use',
 
     'rest_framework', 
     'corsheaders',
