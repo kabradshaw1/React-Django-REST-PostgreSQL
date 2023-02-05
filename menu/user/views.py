@@ -1,10 +1,10 @@
 from rest_framework import viewsets
-from .serializer import UserSerializer
-from .models import User
+from menu.user.serializers import UserSerializer
+from menu.user.models import User
 from rest_framework import filters
 from rest_framework.permissions import IsAuthenticated
 
-class UserView(viewsets.ModelViewSet):
+class UserViewSet(viewsets.ModelViewSet):
   http_method_names = ['get']
   serializer_class = UserSerializer
   permission_classes = (IsAuthenticated,)

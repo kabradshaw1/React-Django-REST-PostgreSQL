@@ -15,21 +15,29 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include, re_path
-from rest_framework import routers
+from rest_framework.routers import SimpleRouter
 
 from menu.views import MenuViewSet
 from menu.user.views import UserViewSet
-from core.auth.views import LoginViewSet, RegistrationViewSet, RefreshViewSet
+from menu.auth.views import LoginViewSet, RegistrationViewSet, RefreshViewSet
 
 from django.views.generic import TemplateView
 
-router = routers.DefaultRouter()
-# router.register(r'users', UserViewSet, 'user')
-# router.register(r'users', UserView, 'user')
-router.register(r'menu', MenuViewSet, basename='menu')
+routes = SimpleRouter()
+
+# AUTHENTICATION
+routes.register(r'auth/login', LoginViewSet, basename='auth-login')
+routes.register(r'auth/register', RegistrationViewSet, basename='auth-register')
+routes.register(r'auth/refresh', RefreshViewSet, basename='auth-refresh')
+
+# USER
+routes.register(r'user', UserViewSet, basename='user')
+
+# menu
+routes.register(r'menu', MenuViewSet, basename='menu')
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
-    path('api/', include(router.urls)),
+    path('api/', include(routes.urls)),
     re_path('.*', TemplateView.as_view(template_name='index.html')),
 ]
