@@ -7,6 +7,7 @@ import Alert from 'react-bootstrap/Alert'
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Card from 'react-bootstrap/Card';
+import Header from './components/Header';
 
 
 
@@ -66,6 +67,8 @@ function App() {
   }
 
   return (
+    <>
+    <Header/>
     <Container>
       <Row>
         <Col>
@@ -116,6 +119,7 @@ function App() {
         </Col>
       </Row>
     </Container>
+    </>
   );
 }
 
