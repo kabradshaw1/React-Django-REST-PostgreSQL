@@ -3,14 +3,14 @@ import axios from 'axios';
 import * as Yup from "yup";
 import { useFormik } from "formik";
 import { useDispatch } from "react-redux";
-import { useNavigation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Container, Form, Button, Alert } from 'react-bootstrap';
 
 function Login() {
   const [message, setMessage] = useState('');
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
-  const history = useNavigation();
+  const history = useNavigate();
 
   const handleLogin = (email: string, password: string) => {
     
