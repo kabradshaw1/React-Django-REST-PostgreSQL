@@ -55,7 +55,7 @@ function MenuAdd() {
         show={showAlert}
         variant="danger"
         >
-        Something went wrong with your signup!
+        Something went wrong with your input!
       </Alert>
     <Form.Label><h3>Menu Form</h3></Form.Label>
     <Form.Group className='mb-3' controlId=''>
