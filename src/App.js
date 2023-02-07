@@ -1,58 +1,26 @@
-import axios from 'axios'
-import Container from 'react-bootstrap/Container';
-import {useState} from 'react';
-import Button from 'react-bootstrap/Button';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
-import Card from 'react-bootstrap/Card';
-import Header from './components/Header';
-import MenuAdd from './components/MenuAdd'
 
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Login, Profile, Home } from "./pages";
+import store, { persistor } from "./store";
+import { PersistGate } from "redux-persist/integration/react";
+import { Provider } from "react-redux";
+import ProtectedRoute from "./routes/ProtectedRoute";
 
 function App() {
- 
-  const [menuGetData, setMenuGetData] = useState([]);
-
-  const handleGetSubmit = async (event) => {
-    event.preventDefault()
-
-    try{
-      const resp = await axios.get('/api/menu/', {header:{"Content-type": "application/json"}});
-      setMenuGetData(resp.data)
-
-    }catch(err) {
-      console.error(err)
-    }
-
-  }
-
   return (
-    <>
-    <Header/>
-    <Container>
-      <Row>
-        <Col>
-          <MenuAdd/>
-         
-        </Col>
-        <Col>
-          <Card className='bg-secondary'>
-            <Card.Title><h3>Menu List</h3></Card.Title>
-            <Card.Subtitle>name</Card.Subtitle>
-            {menuGetData && menuGetData.map((menu, index) => (
-              <Card className='bg-primary' key={menu.id}>
-                <Card.Text>{menu.name}</Card.Text>
-                <Card.Text>{menu.description}</Card.Text>
-                <Card.Text>{menu.price}</Card.Text>
-              </Card>
-            ))}
-            <Card.Text>Stuff</Card.Text>
-            <Button variant="primary" onClick={handleGetSubmit}>Get</Button>
-          </Card>
-        </Col>
-      </Row>
-    </Container>
-    </>
+    <Provider store={store}>
+      <PersistGate persistor={persistor} loading={null}>
+        <Router>
+          <div>
+            <Routes>
+              <Route exact path="/login" component={Login} />
+              <ProtectedRoute exact path="/" component={Profile} />
+            </Routes>
+          </div>
+        </Router>
+      </PersistGate>
+    </Provider>
   );
 }
 
