@@ -16,7 +16,7 @@ function App() {
           <div>
             <Routes>
               <Route path="/login" element={<Login/>} />
-              <Route path='/' element={<Profile/>}/>
+              {/* <ProtectedRoute path='/' element={<Profile/>}/> */}
             </Routes>
           </div>
         </Router>

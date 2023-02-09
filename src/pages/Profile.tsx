@@ -13,7 +13,7 @@ const Profile = () => {
   };
   return (
     <Container>
-      <Button onClick={handleLogout}></Button>
+      <Button onClick={handleLogout}>Logout</Button>
     </Container>
 
   );

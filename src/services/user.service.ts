@@ -1,37 +1,20 @@
 import axios from "axios";
+import authHeader from "./auth-header";
 
-const API_URL = "/api/auth/";
+const API_URL = "/api/test/";
 
-export const register = (username: string, email: string, password: string) => {
-  return axios.post(API_URL + "signup", {
-    username,
-    email,
-    password,
-  });
+export const getPublicContent = () => {
+  return axios.get(API_URL + "all");
 };
 
-export const login = (username: string, password: string) => {
-  return axios
-    .post(API_URL + "signin", {
-      username,
-      password,
-    })
-    .then((response) => {
-      if (response.data.accessToken) {
-        localStorage.setItem("user", JSON.stringify(response.data));
-      }
-
-      return response.data;
-    });
+export const getUserBoard = () => {
+  return axios.get(API_URL + "user", { headers: authHeader() });
 };
 
-export const logout = () => {
-  localStorage.removeItem("user");
+export const getModeratorBoard = () => {
+  return axios.get(API_URL + "mod", { headers: authHeader() });
 };
 
-export const getCurrentUser = () => {
-  const userStr = localStorage.getItem("user");
-  if (userStr) return JSON.parse(userStr);
-
-  return null;
+export const getAdminBoard = () => {
+  return axios.get(API_URL + "admin", { headers: authHeader() });
 };
