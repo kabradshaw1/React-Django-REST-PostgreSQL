@@ -3,6 +3,7 @@ import { redirect, Route, RouteProps } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { RootState } from "../store";
 
+
 const ProtectedRoute = (props: RouteProps) => {
   const auth = useSelector((state: RootState) => state.auth);
 {/* <Redirect to={"/"} /> */}
