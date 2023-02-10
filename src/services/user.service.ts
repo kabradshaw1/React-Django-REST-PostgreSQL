@@ -1,9 +1,11 @@
 import axios from "axios";
 import authHeader from "./auth-header";
+import dotenv from 'dotenv'
 
-const API_URL = "/api/test/";
+const API_URL = `${process.env.REACT_APP_API_URL}/api/test/`;
 
 export const getPublicContent = () => {
+  console.log(API_URL+ 'all')
   return axios.get(API_URL + "all");
 };
 
