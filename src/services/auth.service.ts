@@ -1,6 +1,8 @@
 import axios from "axios";
+import dotenv from 'dotenv'
 
-const API_URL = "/api/auth/";
+
+const API_URL = `${process.env.REACT_APP_API_URL}`;
 
 export const register = (username: string, email: string, password: string) => {
   return axios.post(API_URL + "signup", {
