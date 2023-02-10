@@ -2,10 +2,10 @@ import axios from "axios";
 import dotenv from 'dotenv'
 
 
-const API_URL = `${process.env.REACT_APP_API_URL}`;
+const API_URL = `${process.env.REACT_APP_API_URL}/api/auth/`;
 
 export const register = (username: string, email: string, password: string) => {
-  return axios.post(API_URL + "signup", {
+  return axios.post(API_URL + "register", {
     username,
     email,
     password,
@@ -14,7 +14,7 @@ export const register = (username: string, email: string, password: string) => {
 
 export const login = (username: string, password: string) => {
   return axios
-    .post(API_URL + "signin", {
+    .post(API_URL + "login", {
       username,
       password,
     })
