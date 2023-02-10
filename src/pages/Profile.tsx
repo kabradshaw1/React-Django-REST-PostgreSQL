@@ -24,6 +24,14 @@ const Profile = () => {
   return (
     <Container>
       <Button onClick={handleLogout}>Logout</Button>
+      {/* {
+        user.data ?
+            <div className="w-full h-full text-center items-center">
+                <p className="self-center my-auto">Welcome, {user.data?.username}</p>
+            </div>
+            :
+            <p className="text-center items-center">Loading ...</p>
+      } */}
     </Container>
 
   );
