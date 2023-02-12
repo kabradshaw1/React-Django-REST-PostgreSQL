@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'post',
-    'menu.user',
+    'post.user',
 
     'rest_framework', 
     'corsheaders',
