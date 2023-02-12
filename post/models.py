@@ -5,7 +5,7 @@ class Post(models.Model):
     username = models.TextField()
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
-    response = models.ForeignKey(Response)
+    # response = models.ForeignKey(Response)
 
     def __str__(self):
         return self.name

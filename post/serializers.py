@@ -1,5 +1,7 @@
 from rest_framework import serializers
-from post.models import Post, Response
+# from post.models.response import Response
+# from post.models.post import Post
+from post.models import Response, Post
 
 class PostSerializer(serializers.ModelSerializer):
     response = serializers.StringRelatedField(many=True)
