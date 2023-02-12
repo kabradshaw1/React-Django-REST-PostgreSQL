@@ -1,15 +1,15 @@
 from rest_framework import viewsets
-from menu.models import Menu
-from menu.serializers import MenuSerializer
+from post.models import Post
+from post.serializers import MenuSerializer
 from django.views import View
 from django.http import HttpResponse, HttpResponseNotFound
 import os
 
-class MenuViewSet(viewsets.ModelViewSet):
-    serializer_class = MenuSerializer
+class PostViewSet(viewsets.ModelViewSet):
+    serializer_class = PostSerializer
 
     def get_queryset(self):
-        return Menu.objects.all()
+        return Post.objects.all()
 
 class Assets(View):
 

@@ -1,9 +1,8 @@
 from django.db import models
 
 class Menu(models.Model):
-    name = models.CharField(max_length=255)
-    description = models.TextField()
-    price = models.IntegerField()
+    post = models.CharField(max_length=255)
+    username = models.TextField()
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
