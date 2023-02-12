@@ -22,3 +22,4 @@ class Assets(View):
                 return HttpResponse(file.read(), content_type='application/javascript')
         else:
             return HttpResponseNotFound()
+# End of the code added to prevent an issue when deploying to heroku
