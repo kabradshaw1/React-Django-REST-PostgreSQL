@@ -11,6 +11,7 @@ class PostViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         return Post.objects.all()
 
+# This was added to help prevent an issue when deploying on heroku
 class Assets(View):
 
     def get(self, _request, filename):
