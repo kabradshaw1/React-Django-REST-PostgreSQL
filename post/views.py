@@ -1,6 +1,5 @@
 from rest_framework import viewsets
-from post.models import Post
-from post.serializers import PostSerializer
+from post.serializers import PostSerializer, ResponseSerializer, ResponseSerializer
 from django.views import View
 from django.http import HttpResponse, HttpResponseNotFound
 import os
@@ -10,6 +9,12 @@ class PostViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         return Post.objects.all()
+
+class ResponseViewSet(viewsets.ModelViewSet):
+    serializer_class = ResponseSerializer()
+
+    def get_queryset(self):
+        return Response.objects.all()
 
 # This was added to help prevent an issue when deploying on heroku
 class Assets(View):
