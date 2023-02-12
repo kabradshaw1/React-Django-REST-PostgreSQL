@@ -15,3 +15,5 @@ class Response(model.Model):
 
 class Like(model.Model):
     post = models.ForeignKey(Post, on_delete=models.cascade, mull=True)
+
+    

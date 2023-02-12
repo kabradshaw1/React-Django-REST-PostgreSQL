@@ -2,5 +2,5 @@ from django.apps import AppConfig
 
 
 class UserConfig(AppConfig):
-    name = 'menu.user'
+    name = 'post.user'
     label = 'core_user'
