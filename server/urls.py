@@ -17,9 +17,9 @@ from django.contrib import admin
 from django.urls import path, include, re_path
 from rest_framework.routers import SimpleRouter
 
-from menu.views import MenuViewSet
-from menu.user.views import UserViewSet
-from menu.auth.views import LoginViewSet, RegistrationViewSet, RefreshViewSet
+from post.views import PostViewSet
+from post.user.views import UserViewSet
+from post.auth.views import LoginViewSet, RegistrationViewSet, RefreshViewSet
 
 from django.views.generic import TemplateView
 
@@ -33,8 +33,8 @@ routes.register(r'auth/refresh', RefreshViewSet, basename='auth-refresh')
 # USER
 routes.register(r'user', UserViewSet, basename='user')
 
-# menu
-routes.register(r'menu', MenuViewSet, basename='menu')
+# post
+routes.register(r'post', PostViewSet, basename='post')
 
 urlpatterns = [
     # path('admin/', admin.site.urls),

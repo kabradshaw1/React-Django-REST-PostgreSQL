@@ -1,6 +1,6 @@
 from rest_framework import viewsets
 from post.models import Post
-from post.serializers import MenuSerializer
+from post.serializers import PostSerializer
 from django.views import View
 from django.http import HttpResponse, HttpResponseNotFound
 import os

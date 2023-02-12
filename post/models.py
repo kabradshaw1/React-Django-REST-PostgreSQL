@@ -9,11 +9,10 @@ class Post(models.Model):
     def __str__(self):
         return self.name
 
-class Response(model.Model):
+class Response(models.Model):
     responseText = models.CharField(max_length=255)
-    post = models.ForeignKey(Post, on_delete=models.cascade, mull=True)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
 
-class Like(model.Model):
-    post = models.ForeignKey(Post, on_delete=models.cascade, mull=True)
+class Like(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
 
-    
