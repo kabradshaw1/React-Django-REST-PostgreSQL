@@ -2,5 +2,5 @@ from django.apps import AppConfig
 
 
 class UserConfig(AppConfig):
-    name = 'post.user'
+    name = 'social.user'
     label = 'core_user'

@@ -5,7 +5,7 @@ from rest_framework.permissions import AllowAny
 from rest_framework import status, viewsets
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework_simplejwt.exceptions import TokenError, InvalidToken
-from post.auth.serializers import LoginSerializer, RegisterSerializer
+from social.auth.serializers import LoginSerializer, RegisterSerializer
 
 
 class LoginViewSet(ModelViewSet, TokenObtainPairView):

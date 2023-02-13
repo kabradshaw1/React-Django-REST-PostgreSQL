@@ -1,6 +1,6 @@
 from rest_framework import viewsets
-from post.user.serializers import UserSerializer
-from post.user.models import User
+from social.user.serializers import UserSerializer
+from social.user.models import User
 from rest_framework import filters
 from rest_framework.permissions import IsAuthenticated
 

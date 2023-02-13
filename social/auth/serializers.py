@@ -4,8 +4,8 @@ from rest_framework_simplejwt.settings import api_settings
 from django.contrib.auth.models import update_last_login
 from django.core.exceptions import ObjectDoesNotExist
 
-from post.user.serializers import UserSerializer
-from post.user.models import User
+from social.user.serializers import UserSerializer
+from social.user.models import User
 
 
 class LoginSerializer(TokenObtainPairSerializer):
