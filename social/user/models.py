@@ -1,4 +1,6 @@
 from django.db import models
+from social.models import Post, Response
+
 
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 
@@ -37,6 +39,8 @@ class User(AbstractBaseUser, PermissionsMixin):
   email = models.CharField(db_index=True, max_length=25, null=True, unique=True)
   is_active = models.BooleanField(default=True)
   is_staff = models.BooleanField(default=False)
+  post = models.ForeignKey(Post, on_delete=models.CASCADE)
+  response = models.ForeignKey(Response, on_delete=models.CASCADE)
   
   USERNAME_FIELD = 'email'
   REQUIRED_FIELDS = ['username']
