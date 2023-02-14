@@ -1,3 +1,5 @@
 from django.db import models
 
-# Create your models here.
+class Like(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    response = models.ForeignKey(Response, on_delete=models.CASCADE)
