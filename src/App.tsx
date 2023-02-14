@@ -2,16 +2,16 @@ import React from 'react';
 import Header from './components/Header';
 import { BrowserRouter, Routes , Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import store from './store'
+// import store from './store'
 import Login from './page/login';
 import RegiserUser from './page/RegisterUser';
-import Hume from './page/Home'
+import Home from './page/Home'
 
 const App: React.FC = () => {
   return(
     <>
-      <Header/>
-      <Provider store={store}>
+      {/* <Provider store={store}> */}
+        <Header/>
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home/>}/>
@@ -19,7 +19,7 @@ const App: React.FC = () => {
             <Route path="/Login" element={<Login/>}/>
           </Routes>
         </BrowserRouter>
-        </Provider>
+        {/* </Provider> */}
     </>
   )
 };
