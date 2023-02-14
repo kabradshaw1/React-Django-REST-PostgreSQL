@@ -1,5 +1,5 @@
 from django.db import models
-
+from social.post.models import Post
 class Response(models.Model):
     responseText = models.CharField(max_length=255)
     post = models.ForeignKey(Post, on_delete=models.CASCADE)

@@ -2,7 +2,7 @@ from rest_framework import serializers
 from social.like.models import Like
 
 class LikeSerializer(serializers.ModelSerializer):
-  like = serializer.StringRelatedField(many=True)
+  like = serializers.StringRelatedField(many=True)
 
   class Meta:
     model = Like

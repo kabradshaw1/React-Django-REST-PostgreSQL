@@ -1,9 +1,9 @@
 from rest_framework import viewsets
-from social.like.serializers import LikeSerializers
+from social.like.serializers import LikeSerializer
 from social.common import Assets
 
 class LikeViewSet(viewsets.ModelViewSet):
-  serializer_class = LikeSerializers
+  serializer_class = LikeSerializer
 
   def get_queryset(self):
     return Like.objects.all

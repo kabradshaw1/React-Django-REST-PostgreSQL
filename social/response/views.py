@@ -1,6 +1,6 @@
 from rest_framework import viewsets
 from social.response.serializers import ResponseSerializer
-from solcial.common import Assets
+from social.common import Assets
 
 
 class ResponseViewSet(viewsets.ModelViewSet):
