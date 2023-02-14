@@ -33,7 +33,7 @@ DEBUG = config('DEBUG')
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'serene-tor-73175.herokuapp.com']
 
-AUTH_USER_MODEL = 'core_user.User'
+AUTH_USER_MODEL = 'social_user.User'
 
 # Application definition
 

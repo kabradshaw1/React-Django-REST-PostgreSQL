@@ -3,4 +3,4 @@ from django.apps import AppConfig
 
 class UserConfig(AppConfig):
     name = 'social.user'
-    label = 'core_user'
+    label = 'social_user'
