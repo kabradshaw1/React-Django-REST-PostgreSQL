@@ -47,6 +47,9 @@ INSTALLED_APPS = [
 
     'social',
     'social.user',
+    'social.like',
+    'social.post',
+    'social.response',
 
     'rest_framework', 
     'corsheaders',
