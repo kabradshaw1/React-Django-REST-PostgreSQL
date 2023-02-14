@@ -1,8 +1,10 @@
 import React from "react";
+import Header from "./components/Header";
+import { Routes , Route } from 'react-router-dom';
 
 const App: React.FC = () => {
   return(
-    <h1>Hi</h1>
+    <Header/>
   )
 };
 
