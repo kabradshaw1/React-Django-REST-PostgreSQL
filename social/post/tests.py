@@ -6,4 +6,4 @@ from social.user.models import User
 
 class TestPostModels(TestCase):
   def test_post_has_many_responses(self):
-    Post = Book.objects.create(postText='This is a test post', username='Kyle', )
+    Post = Book.objects.create(postText='This is a test post', user='1')
