@@ -4,6 +4,8 @@ import Container from 'react-bootstrap/Container';
 
 
 const AllPosts: React.FC = () => {
+  
+
   return(
     <Container>
       <h2>AllPosts</h2>
