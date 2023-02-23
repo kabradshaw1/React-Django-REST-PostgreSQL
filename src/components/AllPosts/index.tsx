@@ -5,7 +5,9 @@ import Container from 'react-bootstrap/Container';
 
 const AllPosts: React.FC = () => {
   
+  const getPosts = () => {
 
+  }
   return(
     <Container>
       <h2>AllPosts</h2>
