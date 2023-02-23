@@ -1,8 +1,10 @@
 import React from "react";
 import AllPosts, { getPosts } from "./index";
+import { render } from '@testing-library/react'
 import axios from "axios";
 
 jest.mock('axios');
+const mockedAxios = axios as jest.Mocked<typeof axios>
 
 describe('API call test', () => {
   describe('when API call is successful', () => {
@@ -15,7 +17,7 @@ describe('API call test', () => {
 
   describe('when API call fails', () => {
     test('should return return emply post list', () => {
-      
+
     })
   })
 })

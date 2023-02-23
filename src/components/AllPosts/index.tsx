@@ -7,7 +7,8 @@ const AllPosts: React.FC = () => {
   
   const getPosts = () => {
 
-  }
+  };
+
   return(
     <Container>
       <h2>AllPosts</h2>
@@ -15,4 +16,4 @@ const AllPosts: React.FC = () => {
   )
 }
 
-export default AllPosts
+export default AllPosts;
