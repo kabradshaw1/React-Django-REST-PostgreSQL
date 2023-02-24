@@ -6,4 +6,4 @@ class ResponseSerializer(serializers.ModelSerializer):
     
   class Meta:
     model = Response
-    fields = ['id', 'responseText', 'username', 'created', 'updated', 'post']
+    fields = ['id', 'responseText', 'user_id', 'created', 'updated', 'post']
