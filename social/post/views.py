@@ -1,6 +1,7 @@
 from rest_framework import viewsets
 from social.post.serializers import PostSerializer
 from social.common import Assets
+from social.post.models import Post
 
 class PostViewSet(viewsets.ModelViewSet):
     serializer_class = PostSerializer
